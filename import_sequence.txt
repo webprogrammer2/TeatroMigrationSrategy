@@ -1,0 +1,13 @@
+InsertAspNetRoles
+AppDefaultInsert
+Companies
+Theaters
+TheaterImages
+Teachers
+Tours
+Shows
+Eventos
+Invoices
+InvoiceDetails
+Payments
+Zip

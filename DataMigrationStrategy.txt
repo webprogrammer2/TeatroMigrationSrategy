@@ -1,0 +1,7 @@
+Startegy for data migration from Teatro to TeatroManagementDB
+
+
+1.Create SQL Server Database Project from existing azure TeatroManagementDB 
+2.Create TeatroManagementDB database on local Sql Server from SQL Server Database Project
+2.Copy data from all tables from Teatro to local TeatroManagementDB
+3.Migrate local TeatroDatabaseDB to azure 
