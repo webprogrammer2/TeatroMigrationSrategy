@@ -1,4 +1,6 @@
-USE [TeatroManagementDb2]
+USE [TeatroManagementVs]
+
+DECLARE @Now DateTime = GetDate()
 
 SET IDENTITY_INSERT [dbo].[Eventos] ON
 
@@ -31,23 +33,15 @@ SELECT [id]
 	  ,IsNull([defaultZip],'')
       ,IsNull([comments], '')
       ,Convert(NVarchar(50),[userId])
-	  ,GetDate()
+	  ,@Now
 	  ,Convert(NVarchar(50),[userId])
-      ,GetDate()
+      ,@Now
       
-  FROM TeatroDB.[dbo].[events] e
-  INNER JOIN TeatroDB.[dbo].[tours] t ON (e.tour_id = t.tour_id)
+  FROM Teatro20250629.[dbo].[events] e
+  INNER JOIN Teatro20250629.[dbo].[tours] t ON (e.tour_id = t.tour_id)
+
 
 SET IDENTITY_INSERT [dbo].[Eventos] OFF
 
-
--- Check for violations
-/*
-GO
-DBCC CHECKCONSTRAINTS ('FK_InvoiceDetails_Eventos_EventoId');
-GO
-
-DELETE FROM Eventos
-DBCC CHECKIDENT ('TeatroManagementDev.dbo.Eventos', RESEED, 0)
-*/
-
+-- NEEDS SOME WORK AFTER INSERT
+-- CreatedBy and LastModifiedBy NEEDS TO BE CONVERTED TO USER NVarChar 
